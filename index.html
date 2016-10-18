@@ -1,0 +1,146 @@
+
+<html ng-app="MortgageCalcController">
+<head>
+	<title>Mortgage Calculator</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content = "width = device-width, initial-scale = 2, user-scalable = yes" />
+	<meta name="viewport" content = "width = device-width, initial-scale = 2, minimum-scale = 1, maximum-scale = 5" />
+	<link rel="stylesheet" type="text/css" href="css/styleCSS.css">
+	<link rel="stylesheet" type="text/css" href="css/style_iPhone.css">
+	<script type="text/javascript" src="../Scripts/jquery.js"></script>
+	<script type="text/javascript" src='../Scripts/angular.js'></script>
+	<script type="text/javascript" src="../Scripts/Chart.js"></script>
+</head>
+<body ng-controller="EarlyPay" ng-cloak>
+	<div id="inputWraper">
+		<div id="globalValues">
+			<h2>Loan Terms</h2>
+			<div class="iPhoneResultSection">
+				<label>Loan Amount </label>
+				$&nbsp;<input id="loacnAmountField" type="number" ng-model="loanAmount" ng-change="convertMonthsToYears();">
+				<div class="spacer"></div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Interest Rate</label>
+				<input type="number" ng-model="interestRate" ng-change="convertMonthsToYears();">&nbsp;%
+				<div class="spacer"></div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Loan length Years</label>
+				<input type="number" ng-model="lenghtYears" ng-change="convertYearsToMonth();">
+				<div class="spacer"></div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Loan length Months</label>
+				<input type="number" ng-model="lengthMonths" ng-change="convertMonthsToYears();">
+				<div class="spacer"></div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Extra Payment</label>
+				<input id="userExtraPayment" type="number" ng-model="userExtraPayment" ng-change="convertMonthsToYears();">
+				<div class="spacer"></div>
+			</div>
+		</div>
+
+		<div id="addtionalValues">
+			<h2>Fixed Montly Expenses</h2>
+			<div class="iPhoneResultSection">
+				<label>Tax</label>
+				<input type="number" ng-model="loanTax" ng-change="generateEarlyPayTable();">
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Insurance</label>
+				<input type="number" ng-model="propertyInsurance" ng-change="generateEarlyPayTable();">
+			</div>
+			<div class="iPhoneResultSection">
+				<label>PMI</label>
+				<input type="number" ng-model="PMI" ng-change="generateEarlyPayTable();">
+			</div>
+			<div class="iPhoneResultSection">
+				<label>HOA</label>
+				<input type="number" ng-model="HOA" ng-change="generateEarlyPayTable();">
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Include in Montly Payment?</label>
+				<input type="checkbox" ng-model="includeFixExpense" ng-click="generateEarlyPayTable();">
+			</div>
+		</div>
+
+		<div id="iphoneTable" ng-repeat="element in earlyPayiPhone">
+			<h2>$ {{loanAmount}}, {{lenghtYears}} Years</h2>
+			<div class="iPhoneResultSection">
+				<label>Monthly Payment</label>
+				<div class="iPhoneResultValue">
+					$ {{element.MonthlyPayment + $scope.fixedExpenses | number : 2}}
+				</div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Number of Payments</label>
+				<div class="iPhoneResultValue">
+					{{lengthMonths}} Payments
+				</div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Total Payment</label>
+				<div class="iPhoneResultValue">
+					$ {{element.TotalPayment | number : 2}}
+				</div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Iterest Paid</label>
+				<div class="iPhoneResultValue">
+					$ {{element.IterestPaid | number : 2}}
+				</div>
+			</div>
+			<div class="iPhoneResultSection">
+				<label>Amount Saved</label>
+				<div class="iPhoneResultValue">
+					$ {{element.AmountSaved | number : 2}}
+				</div>
+			</div>
+	    </div>
+	</div>
+	<div id="resultsArea">
+		<div id="toogleDisplay">
+			<button ng-click="showTableData(this)" ng-show="showChart">Table</button>
+			<button ng-click="showChartData(this)" ng-show="showTable">Chart</button>
+		</div>
+
+		<div id="numbersWrapper">
+			<div id="disclosureTable">
+				<table>
+					<tr>
+						<th>Extra Payment</th>
+						<th>Monthly Payment</th>
+						<th>Number of Payments</th>
+						<th>Years</th>
+						<th>Total Payment</th>
+						<th>Iterest Paid</th>
+						<th>Amount Saved</th>
+					</tr>
+					<tr ng-repeat="element in earlyPayElements" title={{element.ExtraPayment}} ng-class="{valueRow: element.ExtraPayment == userExtraPayment}">
+						<td>$&nbsp;{{element.ExtraPayment}}</td>
+						<td>$&nbsp;{{element.MonthlyPayment + $scope.fixedExpenses | number : 2}}</td>
+						<td>{{element.NumberOfPayments}}</td>
+						<td>{{element.NumberOfPayments / 12 | number : 2}}</td>
+						<td>$&nbsp;{{element.TotalPayment | number : 2}}</td>
+						<td>$&nbsp;{{element.IterestPaid | number : 2}}</td>
+						<td>$&nbsp;{{element.AmountSaved | number : 2}}</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="chartWrapper">
+				<canvas id="loanChart"></canvas>
+			</div>
+		</div>
+	</div>
+	<div id="iphoneMenu">
+		<button type="button" name="input" ng-click="showInputSection();">Input</button>
+		<button type="button" name="result" ng-click="showResultsSection()">Result</button>
+	</div>
+
+	<script type="text/javascript" src="js/mortgageCalcController.js"></script>
+	<script type="text/javascript" src="js/mortgageCalc.js"></script>
+</body>
+</html>

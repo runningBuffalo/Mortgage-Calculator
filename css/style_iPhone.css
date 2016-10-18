@@ -1,0 +1,92 @@
+@media only screen and (min-width: 0px) and (max-width: 900px) {
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	h2{
+		width: 100%;
+	}
+	#inputWraper{
+		border: none;
+		bottom: 50px;
+		left: 0;
+		margin: auto;
+		overflow: auto;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+	}
+	#globalValues, #addtionalValues{
+		width: 100%;
+	}
+	#globalValues label,  #addtionalValues label{
+		display: inline-block;
+		padding: 2 10px 5px 20px;
+		text-align: left;
+		width: 40%;
+	}
+	 #globalValues input, #addtionalValues input{
+		 display: inline-block;
+		padding: 2 10px 2px 20px;
+		text-align: right;
+		width: 45%;
+	}
+	#disclosureTable {
+		overflow-x: auto;
+		table-layout: fixed;
+		margin: auto;
+	}
+	.iphoneSectionHeader{
+		background: #0000ff;
+		color: #ffffff;
+		font-size: 1.5em;
+		font-weight: bold;
+		padding: 10px 0;
+		text-align: center;
+	}
+	#chartWrapper{
+		bottom: 5px;
+		height: auto;
+		width: 90%;
+	}
+	#resultsArea{
+		background-color: #ffffff;
+		bottom: 50px;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		z-index: -1;
+	}
+	#numbersWrapper{
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		top: 30px;
+	}
+	#iphoneMenu{
+		background-color: #004488;
+		box-shadow: 0 -2px 6px #666666;
+		bottom: 0;
+		display: block;
+		height: 50px;
+		left: 0;
+		position: fixed;
+		right: 0;
+	}
+	#iphoneMenu button{
+		background-color: #004488;
+		border: 1px solid #cccccc;
+		color: #ffffff;
+		height: 50px;
+		line-height: 50px;
+		outline: none;
+		width: calc(50% - 4px);
+	}
+}

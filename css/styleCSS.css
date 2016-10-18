@@ -1,0 +1,204 @@
+html{
+    /*width: 100%;*/
+}
+body{
+    font-family: monospace;
+    margin: 20px;
+}
+h2{
+    background: #80CEF3;
+    color: #ffffff;
+    font-size: 1.2em;
+    margin: 0 0 5px 0;
+    padding: 3px 0;
+    text-align: center;
+}
+.spacer{
+    clear: both;
+    height: 1px;
+}
+#inputWraper{
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    width: 25%;
+}
+#toogleDisplay{
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+    #toogleDisplay button{
+        background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+    	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+    	background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    	background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+    	background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+    	background-repeat: repeat-x;
+    	border-color: #999999 #999999;
+        border-radius: 5px;
+        color: #f2f2f2;
+        cursor: pointer;
+        padding: 2px 15px;
+    }
+#globalValues, #addtionalValues, #iphoneTable{
+    background-color: #f2f2f2;
+    display: inline-block;
+    margin: 0;
+    padding: 0px;
+    min-width: 100%;
+    vertical-align: top;
+}
+    #globalValues label, #addtionalValues label, #iphoneTable label{
+        clear: both;
+        color: #666666;
+        display: inline-block;
+        font-family: sans-serif;
+        font-size: 0.8em;
+        padding: 0 0 0 10px;
+        width: 130px;
+    }
+    #globalValues input, #addtionalValues input{
+        background: none;
+        border:none;
+        color: #000000;
+        font-family: monospace;
+        font-size: 1.2em;
+        text-align: right;
+        width: 45%;
+    }
+    #globalValues input:focus, #addtionalValues input:focus{
+        background: #ffffff;
+        color: #000000;
+    }
+    .iPhoneResultSection{
+        border-bottom: 1px solid #cccccc;
+        padding: 10px 0;
+    }
+    #iphoneTable label{
+        color: #666666;
+        display: inline-block;
+        font-family: sans-serif;
+        font-size: 0.8em;
+        max-width: 50%;
+    }
+    #iphoneTable .iPhoneResultValue{
+        color: #000000;
+        display: inline-block;
+        font-size: 1.3em;
+        text-align: right;
+        width: 50%;
+    }
+
+#iphoneTable{
+    /*display: none;*/
+    overflow: hidden;
+    width: 100%
+}
+    #iphoneTable table{
+        border: 1px solid #999999;
+        border-collapse: collapse;
+        width: 100%;
+    }
+#disclosureTable{
+    margin: 0;
+}
+    #disclosureTable table{
+        border-spacing: 0;
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+    }
+        #disclosureTable table th{
+            background-color: #80CEF3;
+            border-top: 1px solid #cccccc;
+            border-left: 1px solid #fff;
+            color: #fff;
+            font-size: 1.2em;
+            font-style: normal;
+            padding: 5px 5px;
+        }
+        #disclosureTable table th:first-child{
+            border-left: 1px solid #cccccc;
+        }
+        #disclosureTable table th:last-child{
+            border-right: 1px solid #cccccc;
+        }
+        #disclosureTable table td{
+            border: solid 1px #cccccc;
+            border-collapse: collapse;
+            border-spacing: 0;
+            color: #868686;
+            padding: 5px 5px;
+            text-align: right;
+        }
+
+        #disclosureTable table tr:nth-child(odd){
+            background-color: rgba(128,206,243, 0.3);
+        }
+
+    #disclosureTable table tr.valueRow{
+        background-color: #E57394;
+    }
+        #disclosureTable table tr.valueRow td{
+            color: #ffffff;
+        }
+#resultsArea{
+    display: inline-block;
+    vertical-align: top;
+    width: 74%;
+}
+#numbersWrapper{
+    position: relative;
+}
+#chartWrapper{
+    background-color: rgba(209, 245, 231, 0.2);
+    border: 1px solid #cccccc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: calc(100vh - 50px);
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    width: 95%;
+}
+#loanChart{
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+	height: calc(100vh - 100px);
+}
+
+#iphoneTable section{
+    background-color: rgba(128,206,243, 0.3);
+    width: 100%;
+}
+.iPhoneLabel{
+    border: 1px dashed #999999;
+    border-collapse: collapse;
+    display: inline-block;
+    margin: 0;
+    padding: 20px 20px;
+    text-align: right;
+    width: 45%;
+}
+.iPhoneResult{
+    border: 1px dashed #999999;
+    border-collapse: collapse;
+    display: inline-block;
+    text-align: right;
+    padding: 20px 20px;
+    width: 45%;
+}
+#iphoneMenu{
+    display: none;
+}
